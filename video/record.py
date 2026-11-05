@@ -65,7 +65,7 @@ def join():
                       f"afade=t=out:st={max(d - 0.15, 0):.2f}:d=0.15,adelay={ms}|{ms}[n{i}]")
         labels.append(f"[n{i}]")
     k = len(SCENES)
-    floor = HERE.parent / "samples" / "auction_market.wav"
+    floor = HERE.parent / "samples" / "auction_real.wav"
     # market floor ambience under s01-s02 (quiet), then the full recording in s04 (loud after the narration)
     inputs += ["-i", str(floor), "-i", str(floor)]
     a_end = starts["s03_intro"]

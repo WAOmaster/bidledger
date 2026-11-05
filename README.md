@@ -23,7 +23,7 @@ python make_video.py                        # demo video from the real output
 
 ## Tested on noisy floors
 
-4/4 lots and the Rs 9,000 shortfall caught on every floor, from clean down to a crowd louder than the bidders (-1.5 dB). Details: [NOISE-TEST.md](NOISE-TEST.md). Run `python make_market.py` to make the noisy floors; `--clean` adds a denoise step before transcription.
+4/4 lots and the Rs 9,000 shortfall caught on every floor: synthetic crowds down to -1.5 dB, and **real market recordings** from Lagos, Gombe, Cebu and Huancayo (Wikimedia Commons) at 5 dB and 0 dB. Details: [NOISE-TEST.md](NOISE-TEST.md). Run `python make_market.py` to make the noisy floors; `--clean` adds a denoise step before transcription.
 
 ## What was built during the hackathon
 

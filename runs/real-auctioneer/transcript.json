@@ -1,0 +1,28 @@
+{
+  "sessionId": "voyager/transcribe/F4336A782CBE4A6593F3F10EFAA63C6F",
+  "transcript": "Three two and a half, three three seventy five quick three seventy five three seventy five three fifty up there one three seventy five three seventy five four I'm serious",
+  "audioDurationMs": 28800,
+  "turns": [
+    {
+      "turnId": 0,
+      "startMs": 540,
+      "endMs": 11980,
+      "transcript": "Three two and a half, three",
+      "speaker": "A"
+    },
+    {
+      "turnId": 1,
+      "startMs": 15500,
+      "endMs": 26300,
+      "transcript": "three seventy five quick three seventy five three seventy five three fifty up there one three seventy five three seventy five four",
+      "speaker": "A"
+    },
+    {
+      "turnId": 2,
+      "startMs": 26700,
+      "endMs": 28300,
+      "transcript": "I'm serious",
+      "speaker": "A"
+    }
+  ]
+}

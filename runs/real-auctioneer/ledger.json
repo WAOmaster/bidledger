@@ -1,0 +1,16 @@
+{
+  "ledger": {
+    "speakers": {
+      "A": "auctioneer"
+    },
+    "lots": [],
+    "issues": [
+      "No lot number, item or quantity announced",
+      "No winner named and no sale declared in turn 0-2",
+      "No trader bids present - only speaker A speaks, so no bids to list and no trader names to map"
+    ]
+  },
+  "slip_flags": [],
+  "accuracy": null,
+  "seconds": 30.2
+}

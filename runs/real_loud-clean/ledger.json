@@ -1,0 +1,124 @@
+{
+  "ledger": {
+    "speakers": {
+      "A": "auctioneer",
+      "B": "Lakshmi",
+      "C": "Murugan"
+    },
+    "lots": [
+      {
+        "lot": 1,
+        "item": "carrots",
+        "qty_kg": 600,
+        "bids": [
+          {
+            "speaker": "B",
+            "price_per_kg": 120,
+            "turnId": 1
+          },
+          {
+            "speaker": "B",
+            "price_per_kg": 135,
+            "turnId": 3
+          }
+        ],
+        "winner": "Murugan",
+        "winner_label": "C",
+        "price_per_kg": 140,
+        "sold_turnId": 4,
+        "clip": "clips/lot1.wav",
+        "clip_span": [
+          12.1,
+          31.4
+        ]
+      },
+      {
+        "lot": 2,
+        "item": "leeks",
+        "qty_kg": 400,
+        "bids": [
+          {
+            "speaker": "B",
+            "price_per_kg": 100,
+            "turnId": 5
+          }
+        ],
+        "winner": "Ravi",
+        "winner_label": "",
+        "price_per_kg": 105,
+        "sold_turnId": 6,
+        "clip": "clips/lot2.wav",
+        "clip_span": [
+          31.0,
+          49.6
+        ]
+      },
+      {
+        "lot": 3,
+        "item": "beans",
+        "qty_kg": 250,
+        "bids": [
+          {
+            "speaker": "C",
+            "price_per_kg": 210,
+            "turnId": 7
+          },
+          {
+            "speaker": "B",
+            "price_per_kg": 240,
+            "turnId": 8
+          }
+        ],
+        "winner": "Lakshmi",
+        "winner_label": "B",
+        "price_per_kg": 240,
+        "sold_turnId": 9,
+        "clip": "clips/lot3.wav",
+        "clip_span": [
+          55.1,
+          68.8
+        ]
+      },
+      {
+        "lot": 4,
+        "item": "cabbage",
+        "qty_kg": 1000,
+        "bids": [
+          {
+            "speaker": "C",
+            "price_per_kg": 60,
+            "turnId": 10
+          }
+        ],
+        "winner": "Murugan",
+        "winner_label": "C",
+        "price_per_kg": 60,
+        "sold_turnId": 12,
+        "clip": "clips/lot4.wav",
+        "clip_span": [
+          68.6,
+          75.8
+        ]
+      }
+    ],
+    "issues": [
+      "lot 1 sale price 140 does not match highest bid 135",
+      "lot 1 winner Murugan never bid in lot",
+      "lot 2 sale price 105 does not match highest bid 100",
+      "lot 2 winner Ravi never bid",
+      "turn 11 bid could not be read"
+    ]
+  },
+  "slip_flags": [
+    {
+      "lot": 1,
+      "problem": "Slip says Rs 125/kg, the floor said Rs 140/kg",
+      "farmer_shortfall_rs": 9000
+    }
+  ],
+  "accuracy": {
+    "lots_correct": 4,
+    "lots_total": 4
+  },
+  "seconds": 181.5
+}

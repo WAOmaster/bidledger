@@ -54,7 +54,7 @@ async def tts(text, voice, rate, path, volume="+0%", pitch="+0Hz"):
     return load(path)
 
 
-async def build(name, overlap, babble_gain, thumps_per_min, seed):
+async def build(name, overlap, babble_gain, thumps_per_min, seed, ambience=None):
     rng = random.Random(seed)
     tmp = Path(tempfile.mkdtemp())
     lines = []
@@ -72,24 +72,29 @@ async def build(name, overlap, babble_gain, thumps_per_min, seed):
     for st, a in placed:
         s = int(st * SR); voices[s:s + len(a)] += a[:total - s]
     voices = echo(voices)
-    crowd = np.zeros(total, np.float32)
-    chat = [await tts(txt, v, "+10%", tmp / f"c{i}.mp3") for i, (v, txt) in enumerate(CHATTER)]
-    for _ in range(int(total / SR * 1.6)):  # roughly 1.6 background phrases per second, overlapping
+    if ambience is not None:  # a real market recording instead of synthetic babble
+        crowd = np.resize(ambience, total).astype(np.float32)
+    else:
+      crowd = np.zeros(total, np.float32)
+      chat = [await tts(txt, v, "+10%", tmp / f"c{i}.mp3") for i, (v, txt) in enumerate(CHATTER)]
+      for _ in range(int(total / SR * 1.6)):  # roughly 1.6 background phrases per second, overlapping
         a = lowpass(rng.choice(chat)) * rng.uniform(0.4, 1.0)
         s = rng.randrange(0, max(1, total - len(a)))
         crowd[s:s + len(a)] += a
-    crowd = echo(crowd, (0.07, 0.16, 0.3), (0.4, 0.25, 0.15))
+      crowd = echo(crowd, (0.07, 0.16, 0.3), (0.4, 0.25, 0.15))
     noise = np.random.default_rng(seed).normal(0, 0.012, total).astype(np.float32)  # fans, engines, hiss
+    if ambience is not None: noise *= 0.3
     for _ in range(int(total / SR / 60 * thumps_per_min)):  # crates and sacks dropped
         s = rng.randrange(0, total - 3000)
         env = np.exp(-np.linspace(0, 9, 2600)).astype(np.float32)
         noise[s:s + 2600] += lowpass(np.random.default_rng(s).normal(0, 1, 2600).astype(np.float32), 0.08) * env * rng.uniform(1.5, 3.5)
-    mix = voices + babble_gain * crowd / (np.abs(crowd).max() + 1e-6) * np.abs(voices).max() + noise
+    crowd = crowd / (np.sqrt((crowd ** 2).mean()) + 1e-9) * np.sqrt((voices ** 2).mean())  # same loudness as the bids
+    mix = voices + babble_gain * crowd + noise
     mix = mix / np.abs(mix).max() * 0.9
     out = OUT / f"auction_{name}.wav"
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "f32le", "-ar", str(SR), "-ac", "1", "-i", "-",
                     "-c:a", "pcm_s16le", str(out)], input=mix.astype(np.float32).tobytes(), check=True)
-    snr = 10 * np.log10((voices ** 2).mean() / ((babble_gain * crowd / (np.abs(crowd).max() + 1e-6) * np.abs(voices).max() + noise) ** 2).mean())
+    snr = 10 * np.log10((voices ** 2).mean() / ((babble_gain * crowd + noise) ** 2).mean())
     print(out.name, f"{total / SR:.0f}s", f"speech-to-noise {snr:.1f} dB")
 
 
