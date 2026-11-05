@@ -21,6 +21,10 @@ python bidledger.py samples/auction.wav --slip samples/agent_slip.json --truth s
 python make_video.py                        # demo video from the real output
 ```
 
+## Tested on noisy floors
+
+4/4 lots and the Rs 9,000 shortfall caught on every floor, from clean down to a crowd louder than the bidders (-1.5 dB). Details: [NOISE-TEST.md](NOISE-TEST.md). Run `python make_market.py` to make the noisy floors; `--clean` adds a denoise step before transcription.
+
 ## What was built during the hackathon
 
 All of it, between 26 Oct and 5 Nov 2026: the multilingual test-auction generator with ground truth, the transcription + Spark clerk pipeline, slip checker, proof clips, WhatsApp payloads, report and demo video.

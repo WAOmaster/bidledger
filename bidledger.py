@@ -42,6 +42,16 @@ def transcribe(wav: Path, key: str) -> dict:
     return r.json()
 
 
+def denoise(wav: Path) -> Path:
+    """Market-floor clean-up before ASR: cut rumble and hiss outside the voice band, spectral denoise,
+    then even out levels so a far trader is as loud as the auctioneer."""
+    out = OUT / "floor_clean.wav"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", str(wav), "-af",
+                    "highpass=f=150,lowpass=f=6000,afftdn=nr=18:nf=-30:tn=1,dynaudnorm=f=150:g=7,alimiter=limit=0.9",
+                    "-ac", "1", "-ar", "24000", "-c:a", "pcm_s16le", "-map_metadata", "-1", str(out)], check=True)
+    return out
+
+
 PROMPT = """You are the clerk of an open-cry produce auction. Below is a diarized transcript
 (speaker labels are anonymous: A, B, C...). Bids may be spoken in English, Hindi or Tamil; convert
 every number to an integer in rupees per kilo.
@@ -167,17 +177,21 @@ ul.t{{max-height:320px;overflow:auto;background:#fff;border:1px solid #ddd;paddi
 
 
 def main():
+    global OUT
     ap = argparse.ArgumentParser()
     ap.add_argument("wav", type=Path)
     ap.add_argument("--slip", type=Path)
     ap.add_argument("--truth", type=Path)
     ap.add_argument("--reuse", action="store_true", help="reuse out/transcript.json instead of calling Muse Voice again")
+    ap.add_argument("--clean", action="store_true", help="denoise the floor recording before transcription")
+    ap.add_argument("--out", type=Path, default=OUT)
     a = ap.parse_args()
-    OUT.mkdir(exist_ok=True)
+    OUT = a.out
+    OUT.mkdir(parents=True, exist_ok=True)
     key = api_key()
     t0 = time.time()
     tpath = OUT / "transcript.json"
-    transcript = json.loads(tpath.read_text(encoding="utf-8")) if a.reuse and tpath.exists() else transcribe(a.wav, key)
+    transcript = json.loads(tpath.read_text(encoding="utf-8")) if a.reuse and tpath.exists() else transcribe(denoise(a.wav) if a.clean else a.wav, key)
     tpath.write_text(json.dumps(transcript, indent=2, ensure_ascii=False), encoding="utf-8")
     print(f"transcribed: {len(transcript['turns'])} turns, {len({t.get('speaker') for t in transcript['turns']})} speakers")
     ledger = extract_ledger(transcript, key)

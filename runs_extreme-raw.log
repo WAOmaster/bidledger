@@ -1,0 +1,15 @@
+transcribed: 8 turns, 2 speakers
+{
+  "accuracy": {
+    "lots_correct": 4,
+    "lots_total": 4
+  },
+  "slip_flags": [
+    {
+      "lot": 1,
+      "problem": "Slip says Rs 125/kg, the floor said Rs 140/kg",
+      "farmer_shortfall_rs": 9000
+    }
+  ],
+  "seconds": 140
+}

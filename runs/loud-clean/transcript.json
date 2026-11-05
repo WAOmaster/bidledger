@@ -1,0 +1,70 @@
+{
+  "sessionId": "voyager/transcribe/53600ED4BFA3444BBB1688BD7A1FC299",
+  "transcript": "Lot one. Carrots from Navara India 600 kilos grade A opening at 120 per kilo. 125. 130. 135. 140 from Murugan. Going once going twice sold sold carrots to Murugan at 140. Lot two leeks 400 kilos opening at 90 95 100. 105. One or five, Ravi. Any more? anymore. Sold leeks to Ravi at 105. Lot three, beans, 250 kilos, mid soft. Opening at 200. 210. 220. 240. 240 to Lakshmi. Sold beans to Lakshmi at 240. Lot four, cabbage, 1000 kilos, opening at 50. 55. 60. 60 to Murugan. Sold cabbage to Murugan at 60 rupees.",
+  "audioDurationMs": 75920,
+  "turns": [
+    {
+      "turnId": 0,
+      "startMs": 60,
+      "endMs": 8220,
+      "transcript": "Lot one. Carrots from Navara India 600 kilos grade A opening at 120 per kilo.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 1,
+      "startMs": 8460,
+      "endMs": 23260,
+      "transcript": "125. 130. 135. 140 from Murugan. Going once going twice sold sold carrots to Murugan at 140.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 2,
+      "startMs": 23580,
+      "endMs": 46460,
+      "transcript": "Lot two leeks 400 kilos opening at 90 95 100. 105. One or five, Ravi. Any more? anymore. Sold leeks to Ravi at 105. Lot three, beans, 250 kilos, mid soft.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 3,
+      "startMs": 46860,
+      "endMs": 49660,
+      "transcript": "Opening at 200.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 4,
+      "startMs": 49660,
+      "endMs": 49660,
+      "transcript": "210.",
+      "speaker": "B"
+    },
+    {
+      "turnId": 5,
+      "startMs": 49900,
+      "endMs": 55420,
+      "transcript": "220. 240.",
+      "speaker": "C"
+    },
+    {
+      "turnId": 6,
+      "startMs": 55580,
+      "endMs": 68460,
+      "transcript": "240 to Lakshmi. Sold beans to Lakshmi at 240. Lot four, cabbage, 1000 kilos, opening at 50. 55.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 7,
+      "startMs": 68540,
+      "endMs": 69420,
+      "transcript": "60.",
+      "speaker": "B"
+    },
+    {
+      "turnId": 8,
+      "startMs": 69420,
+      "endMs": 74940,
+      "transcript": "60 to Murugan. Sold cabbage to Murugan at 60 rupees.",
+      "speaker": "A"
+    }
+  ]
+}

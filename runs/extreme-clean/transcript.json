@@ -1,0 +1,49 @@
+{
+  "sessionId": "voyager/transcribe/9BA994DF2D3A44C2933DAECA093DBFCB",
+  "transcript": "lot one one carrots from Navara Kelia 600 kilos grade A opening at 120 per kilo 125 130 135 140 from Murugan going once going twice sold carrots to Murugan at 140 lot two leeks 400 kilos opening at 90 95 100 105 one of five Ravi any more sold leeks to Ravi at 105 105 lot three beans 250 kilos red opening at 200 210 220 240 240 to Lakshmi sold beans to Lakshmi at 240 lot four four cabbage 1000 1000 kilos opening at 50 60 60 to Murugan sold cabbage to Murugan at 60 rupees",
+  "audioDurationMs": 75200,
+  "turns": [
+    {
+      "turnId": 0,
+      "startMs": 460,
+      "endMs": 7660,
+      "transcript": "lot one one carrots from Navara Kelia 600 kilos grade A opening at 120 per kilo",
+      "speaker": "A"
+    },
+    {
+      "turnId": 1,
+      "startMs": 7980,
+      "endMs": 9740,
+      "transcript": "125",
+      "speaker": "B"
+    },
+    {
+      "turnId": 2,
+      "startMs": 9820,
+      "endMs": 11500,
+      "transcript": "130",
+      "speaker": "A"
+    },
+    {
+      "turnId": 3,
+      "startMs": 11500,
+      "endMs": 13340,
+      "transcript": "135",
+      "speaker": "B"
+    },
+    {
+      "turnId": 4,
+      "startMs": 13500,
+      "endMs": 29740,
+      "transcript": "140 from Murugan going once going twice sold carrots to Murugan at 140 lot two leeks 400 kilos opening at 90 95",
+      "speaker": "A"
+    },
+    {
+      "turnId": 5,
+      "startMs": 31020,
+      "endMs": 74700,
+      "transcript": "100 105 one of five Ravi any more sold leeks to Ravi at 105 105 lot three beans 250 kilos red opening at 200 210 220 240 240 to Lakshmi sold beans to Lakshmi at 240 lot four four cabbage 1000 1000 kilos opening at 50 60 60 to Murugan sold cabbage to Murugan at 60 rupees",
+      "speaker": "A"
+    }
+  ]
+}

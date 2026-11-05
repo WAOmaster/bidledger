@@ -1,0 +1,63 @@
+{
+  "sessionId": "voyager/transcribe/F5EB27F1BE944EF993A0007F4B64FB99",
+  "transcript": "Lot one. carrots from Navara area 600 kilos grade A opening at 120 per kilo. 125. 130. 135. 140 from Murugan. going once going twice sold carrots to Murugan at 140. lot two leeks 400 kilos opening at 90. 95 95 105 one of five Ravi any more sold leeks to Ravi at 105 lot three beans 250 kilos opening at 200 240 240 to Lakshmi sold beans to Lakshmi at 240 lot four cabbage 1000 kilos opening opening at 50 60 60 to Murugan sold cabbage to Murugan at 60 rupees",
+  "audioDurationMs": 75200,
+  "turns": [
+    {
+      "turnId": 0,
+      "startMs": 60,
+      "endMs": 7820,
+      "transcript": "Lot one. carrots from Navara area 600 kilos grade A opening at 120 per kilo.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 1,
+      "startMs": 7980,
+      "endMs": 10060,
+      "transcript": "125.",
+      "speaker": "B"
+    },
+    {
+      "turnId": 2,
+      "startMs": 10140,
+      "endMs": 11500,
+      "transcript": "130.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 3,
+      "startMs": 11660,
+      "endMs": 15020,
+      "transcript": "135.",
+      "speaker": "B"
+    },
+    {
+      "turnId": 4,
+      "startMs": 15500,
+      "endMs": 31260,
+      "transcript": "140 from Murugan. going once going twice sold carrots to Murugan at 140. lot two leeks 400 kilos opening at 90. 95 95",
+      "speaker": "A"
+    },
+    {
+      "turnId": 5,
+      "startMs": 32300,
+      "endMs": 50300,
+      "transcript": "105 one of five Ravi any more sold leeks to Ravi at 105 lot three beans 250 kilos opening at 200",
+      "speaker": "A"
+    },
+    {
+      "turnId": 6,
+      "startMs": 52380,
+      "endMs": 54620,
+      "transcript": "240",
+      "speaker": "B"
+    },
+    {
+      "turnId": 7,
+      "startMs": 54700,
+      "endMs": 74700,
+      "transcript": "240 to Lakshmi sold beans to Lakshmi at 240 lot four cabbage 1000 kilos opening opening at 50 60 60 to Murugan sold cabbage to Murugan at 60 rupees",
+      "speaker": "A"
+    }
+  ]
+}

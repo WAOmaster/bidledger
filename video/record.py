@@ -32,36 +32,64 @@ def record():
             page.wait_for_timeout(dur * 1000 + 700)
             vid = Path(page.video.path())
             ctx.close()
-            # trim the blank load (first ~0.7 s), mux narration (delayed 0.3 s)
-            parts = ["-ss", "0.7", "-i", str(vid), "-i", str(HERE / "audio" / f"{s}.wav")]
-            mix = "[1:a]adelay=300|300,apad[n]"
-            if s in AUCTION_AT:
-                parts += ["-i", str(HERE.parent / "samples" / "auction.wav")]
-                ms = int(AUCTION_AT[s] * 1000)
-                mix = (f"[1:a]adelay=300|300,apad[n0];[2:a]atrim=0:{dur:.1f},adelay={ms}|{ms},"
-                       f"volume='if(lt(t,{DUR[s] + 0.6:.1f}),0.25,1.0)':eval=frame,apad[au];[n0][au]amix=inputs=2:duration=first:normalize=0[n]")
-            run(*parts, "-filter_complex", mix + ";[n]aformat=sample_rates=48000:channel_layouts=stereo[a]",
-                "-map", "0:v", "-map", "[a]", "-t", f"{dur:.2f}", "-r", "30", "-c:v", "libx264", "-pix_fmt", "yuv420p",
-                "-crf", "20", "-c:a", "aac", "-b:a", "160k", str(SEG / f"{s}.mp4"))
+            run("-ss", "0.7", "-i", str(vid), "-t", f"{dur:.2f}", "-an", "-r", "30", "-c:v", "libx264",
+                "-pix_fmt", "yuv420p", "-crf", "20", str(SEG / f"{s}.mp4"))
             print(s, f"{dur:.1f}s", flush=True)
         b.close()
 
 
+def scene_dur(s):
+    return DUR[s] + PAD.get(s, 1.0)
+
+
 def join():
+    """Video: concat of silent scenes. Audio: ONE continuous mix (no per-scene audio joins, so no clicks):
+    every narration line faded in/out and placed at its absolute time, real market floor under the
+    opening and the recording scene, music bed under everything."""
     lst = SEG / "list.txt"
-    lst.write_text("".join(f"file '{(SEG / f'{s}.mp4').as_posix()}'\n" for s in SCENES))
+    lst.write_text("".join("file '" + (SEG / f"{s}.mp4").as_posix() + "'\n" for s in SCENES))
     body = SEG / "_body.mp4"
     run("-f", "concat", "-safe", "0", "-i", str(lst), "-c", "copy", str(body))
+    starts, t = {}, 0.0
+    for s in SCENES:
+        starts[s] = t; t += scene_dur(s)
+    total = t
+    inputs, chains, labels = [], [], []
+    for i, s in enumerate(SCENES):
+        inputs += ["-i", str(HERE / "audio_clean" / f"{s}.wav")]
+        d = DUR[s]; ms = int((starts[s] + 0.3) * 1000)
+        chains.append(f"[{i}:a]aformat=sample_rates=48000:channel_layouts=stereo,afade=t=in:d=0.04,"
+                      f"afade=t=out:st={max(d - 0.15, 0):.2f}:d=0.15,adelay={ms}|{ms}[n{i}]")
+        labels.append(f"[n{i}]")
+    k = len(SCENES)
+    floor = HERE.parent / "samples" / "auction_market.wav"
+    # market floor ambience under s01-s02 (quiet), then the full recording in s04 (loud after the narration)
+    inputs += ["-i", str(floor), "-i", str(floor)]
+    a_end = starts["s03_intro"]
+    chains.append(f"[{k}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{a_end:.2f},"
+                  f"volume=0.16,afade=t=in:d=1.5,afade=t=out:st={a_end - 1.2:.2f}:d=1.2[amb]")
+    r0, rd, nd = starts["s04_record"] + 0.4, scene_dur("s04_record") - 0.6, DUR["s04_record"] + 0.4
+    chains.append(f"[{k + 1}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{rd:.2f},"
+                  f"volume='if(lt(t,{nd:.2f}),0.22,0.95)':eval=frame,afade=t=in:d=0.4,afade=t=out:st={rd - 0.8:.2f}:d=0.8,"
+                  f"adelay={int(r0 * 1000)}|{int(r0 * 1000)}[rec]")
+    inputs += ["-stream_loop", "-1", "-i", str(BED)]
+    chains.append(f"[{k + 2}:a]aformat=sample_rates=48000:channel_layouts=stereo,atrim=0:{total:.2f},volume=0.09,"
+                  f"afade=t=in:d=2,afade=t=out:st={total - 3:.2f}:d=3[bed]")
+    mix = ";".join(chains) + ";" + "".join(labels) + f"[amb][rec][bed]amix=inputs={k + 3}:duration=longest:normalize=0,"
+    mix += f"atrim=0:{total:.2f},alimiter=limit=0.95[a]"
+    audio = SEG / "_audio.wav"
+    run(*inputs, "-filter_complex", mix, "-map", "[a]", "-c:a", "pcm_s16le", str(audio))
     out = HERE.parent / "demo" / "bidledger-demo.mp4"
     out.parent.mkdir(exist_ok=True)
-    run("-i", str(body), "-stream_loop", "-1", "-i", str(BED), "-filter_complex",
-        "[1:a]volume=0.10,aformat=sample_rates=48000:channel_layouts=stereo[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]",
-        "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-shortest", str(out))
+    run("-i", str(body), "-i", str(audio), "-map", "0:v", "-map", "1:a", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+        "-shortest", str(out))
     d = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(out)],
                              capture_output=True, text=True).stdout)
     print(out, f"{d:.0f}s")
 
 
 if __name__ == "__main__":
-    record()
+    import sys
+    if "--join" not in sys.argv:
+        record()
     join()

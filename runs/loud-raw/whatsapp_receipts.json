@@ -1,0 +1,314 @@
+[
+  {
+    "messaging_product": "whatsapp",
+    "to": "<Murugan phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_buyer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "1"
+            },
+            {
+              "type": "text",
+              "text": "carrots"
+            },
+            {
+              "type": "text",
+              "text": "600"
+            },
+            {
+              "type": "text",
+              "text": "140"
+            },
+            {
+              "type": "text",
+              "text": "84,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot1.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<farmer phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_farmer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "1"
+            },
+            {
+              "type": "text",
+              "text": "carrots"
+            },
+            {
+              "type": "text",
+              "text": "600"
+            },
+            {
+              "type": "text",
+              "text": "140"
+            },
+            {
+              "type": "text",
+              "text": "84,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot1.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<Ravi phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_buyer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "2"
+            },
+            {
+              "type": "text",
+              "text": "leeks"
+            },
+            {
+              "type": "text",
+              "text": "400"
+            },
+            {
+              "type": "text",
+              "text": "105"
+            },
+            {
+              "type": "text",
+              "text": "42,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot2.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<farmer phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_farmer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "2"
+            },
+            {
+              "type": "text",
+              "text": "leeks"
+            },
+            {
+              "type": "text",
+              "text": "400"
+            },
+            {
+              "type": "text",
+              "text": "105"
+            },
+            {
+              "type": "text",
+              "text": "42,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot2.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<Lakshmi phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_buyer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "3"
+            },
+            {
+              "type": "text",
+              "text": "beans"
+            },
+            {
+              "type": "text",
+              "text": "250"
+            },
+            {
+              "type": "text",
+              "text": "240"
+            },
+            {
+              "type": "text",
+              "text": "60,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot3.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<farmer phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_farmer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "3"
+            },
+            {
+              "type": "text",
+              "text": "beans"
+            },
+            {
+              "type": "text",
+              "text": "250"
+            },
+            {
+              "type": "text",
+              "text": "240"
+            },
+            {
+              "type": "text",
+              "text": "60,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot3.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<Murugan phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_buyer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "4"
+            },
+            {
+              "type": "text",
+              "text": "cabbage"
+            },
+            {
+              "type": "text",
+              "text": "1000"
+            },
+            {
+              "type": "text",
+              "text": "60"
+            },
+            {
+              "type": "text",
+              "text": "60,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot4.wav"
+  },
+  {
+    "messaging_product": "whatsapp",
+    "to": "<farmer phone>",
+    "type": "template",
+    "template": {
+      "name": "bidledger_sale_farmer",
+      "language": {
+        "code": "en"
+      },
+      "components": [
+        {
+          "type": "body",
+          "parameters": [
+            {
+              "type": "text",
+              "text": "4"
+            },
+            {
+              "type": "text",
+              "text": "cabbage"
+            },
+            {
+              "type": "text",
+              "text": "1000"
+            },
+            {
+              "type": "text",
+              "text": "60"
+            },
+            {
+              "type": "text",
+              "text": "60,000"
+            }
+          ]
+        }
+      ]
+    },
+    "_attach_audio_proof": "clips/lot4.wav"
+  }
+]
