@@ -1,0 +1,3 @@
+requests
+keyring
+edge-tts

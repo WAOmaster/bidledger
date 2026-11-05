@@ -1,0 +1,158 @@
+{
+  "ledger": {
+    "speakers": {
+      "A": "auctioneer",
+      "B": "unknown",
+      "C": "Murugan"
+    },
+    "lots": [
+      {
+        "lot": 1,
+        "item": "carrots",
+        "qty_kg": 600,
+        "bids": [
+          {
+            "speaker": "B",
+            "price_per_kg": 125,
+            "turnId": 1
+          },
+          {
+            "speaker": "A",
+            "price_per_kg": 130,
+            "turnId": 2
+          },
+          {
+            "speaker": "B",
+            "price_per_kg": 135,
+            "turnId": 3
+          },
+          {
+            "speaker": "C",
+            "price_per_kg": 140,
+            "turnId": 4
+          }
+        ],
+        "winner": "Murugan",
+        "winner_label": "C",
+        "price_per_kg": 140,
+        "sold_turnId": 5,
+        "clip": "clips/lot1.wav",
+        "clip_span": [
+          15.8,
+          33.1
+        ]
+      },
+      {
+        "lot": 2,
+        "item": "leeks",
+        "qty_kg": 400,
+        "bids": [
+          {
+            "speaker": "A",
+            "price_per_kg": 95,
+            "turnId": 6
+          },
+          {
+            "speaker": "A",
+            "price_per_kg": 100,
+            "turnId": 6
+          },
+          {
+            "speaker": "A",
+            "price_per_kg": 105,
+            "turnId": 6
+          }
+        ],
+        "winner": "Ravi",
+        "winner_label": "",
+        "price_per_kg": 105,
+        "sold_turnId": 6,
+        "clip": "clips/lot2.wav",
+        "clip_span": [
+          34.0,
+          56.4
+        ]
+      },
+      {
+        "lot": 3,
+        "item": "beans",
+        "qty_kg": 250,
+        "bids": [
+          {
+            "speaker": "C",
+            "price_per_kg": 210,
+            "turnId": 7
+          },
+          {
+            "speaker": "C",
+            "price_per_kg": 220,
+            "turnId": 7
+          },
+          {
+            "speaker": "C",
+            "price_per_kg": 230,
+            "turnId": 7
+          },
+          {
+            "speaker": "A",
+            "price_per_kg": 240,
+            "turnId": 8
+          }
+        ],
+        "winner": "Lakshmi",
+        "winner_label": "",
+        "price_per_kg": 240,
+        "sold_turnId": 8,
+        "clip": "clips/lot3.wav",
+        "clip_span": [
+          63.7,
+          86.8
+        ]
+      },
+      {
+        "lot": 4,
+        "item": "cabbage",
+        "qty_kg": 1000,
+        "bids": [
+          {
+            "speaker": "A",
+            "price_per_kg": 55,
+            "turnId": 8
+          },
+          {
+            "speaker": "A",
+            "price_per_kg": 60,
+            "turnId": 8
+          }
+        ],
+        "winner": "Murugan",
+        "winner_label": "C",
+        "price_per_kg": 60,
+        "sold_turnId": 8,
+        "clip": "clips/lot4.wav",
+        "clip_span": [
+          63.7,
+          86.8
+        ]
+      }
+    ],
+    "issues": [
+      "lot 2: winner Ravi never bid with own label; all bids spoken by auctioneer A",
+      "lot 3: winner Lakshmi never bid directly; winning bid 240 spoken by auctioneer A",
+      "lot 4: winner Murugan (C) did not bid in this lot; bids spoken by auctioneer A",
+      "speaker B never wins so trader name unknown; winners Ravi and Lakshmi have no speaker label"
+    ]
+  },
+  "slip_flags": [
+    {
+      "lot": 1,
+      "problem": "Slip says Rs 125/kg, the floor said Rs 140/kg",
+      "farmer_shortfall_rs": 9000
+    }
+  ],
+  "accuracy": {
+    "lots_correct": 4,
+    "lots_total": 4
+  },
+  "seconds": 214.8
+}

@@ -1,0 +1,70 @@
+{
+  "sessionId": "voyager/transcribe/5BCEA4B3A6EE4BC6869D5F9852F7F00C",
+  "transcript": "Lot one, carrots from Nuwara Eliya, 600 kilos, grade A opening at 120 per kilo. 125. 130. 135. Nootan arpade. 140 from Murugan. Going once, going twice. Sold, carrots, to Murugan at 140. Lot two, leeks, 400 kilos. opening at 90. 95 100 105 one of five Ravi any more sold leeks to Ravi at 105 lot three beans 250 kilos bit soft opening at 200 210 220 230 240 to Lakshmi sold beans to Lakshmi at 240 lot four cabbage 1000 kilos opening at 50 55 60 60 to Murugan sold cabbage to Murugan at 60 rupees",
+  "audioDurationMs": 86960,
+  "turns": [
+    {
+      "turnId": 0,
+      "startMs": 60,
+      "endMs": 9180,
+      "transcript": "Lot one, carrots from Nuwara Eliya, 600 kilos, grade A opening at 120 per kilo.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 1,
+      "startMs": 9180,
+      "endMs": 11180,
+      "transcript": "125.",
+      "speaker": "B"
+    },
+    {
+      "turnId": 2,
+      "startMs": 11340,
+      "endMs": 13820,
+      "transcript": "130.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 3,
+      "startMs": 13820,
+      "endMs": 15900,
+      "transcript": "135.",
+      "speaker": "B"
+    },
+    {
+      "turnId": 4,
+      "startMs": 16060,
+      "endMs": 18300,
+      "transcript": "Nootan arpade.",
+      "speaker": "C"
+    },
+    {
+      "turnId": 5,
+      "startMs": 18380,
+      "endMs": 32780,
+      "transcript": "140 from Murugan. Going once, going twice. Sold, carrots, to Murugan at 140. Lot two, leeks, 400 kilos. opening at 90.",
+      "speaker": "A"
+    },
+    {
+      "turnId": 6,
+      "startMs": 34300,
+      "endMs": 56140,
+      "transcript": "95 100 105 one of five Ravi any more sold leeks to Ravi at 105 lot three beans 250 kilos bit soft opening at 200",
+      "speaker": "A"
+    },
+    {
+      "turnId": 7,
+      "startMs": 56300,
+      "endMs": 63020,
+      "transcript": "210 220 230",
+      "speaker": "C"
+    },
+    {
+      "turnId": 8,
+      "startMs": 63980,
+      "endMs": 86460,
+      "transcript": "240 to Lakshmi sold beans to Lakshmi at 240 lot four cabbage 1000 kilos opening at 50 55 60 60 to Murugan sold cabbage to Murugan at 60 rupees",
+      "speaker": "A"
+    }
+  ]
+}

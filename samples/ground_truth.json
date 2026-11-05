@@ -1,0 +1,30 @@
+[
+  {
+    "lot": 1,
+    "item": "carrots",
+    "qty_kg": 600,
+    "winner": "Murugan",
+    "price_per_kg": 140
+  },
+  {
+    "lot": 2,
+    "item": "leeks",
+    "qty_kg": 400,
+    "winner": "Ravi",
+    "price_per_kg": 105
+  },
+  {
+    "lot": 3,
+    "item": "beans",
+    "qty_kg": 250,
+    "winner": "Lakshmi",
+    "price_per_kg": 240
+  },
+  {
+    "lot": 4,
+    "item": "cabbage",
+    "qty_kg": 1000,
+    "winner": "Murugan",
+    "price_per_kg": 60
+  }
+]

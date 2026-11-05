@@ -1,0 +1,26 @@
+[
+  {
+    "lot": 1,
+    "item": "carrots",
+    "buyer": "Murugan",
+    "price_per_kg": 125
+  },
+  {
+    "lot": 2,
+    "item": "leeks",
+    "buyer": "Ravi",
+    "price_per_kg": 105
+  },
+  {
+    "lot": 3,
+    "item": "beans",
+    "buyer": "Lakshmi",
+    "price_per_kg": 240
+  },
+  {
+    "lot": 4,
+    "item": "cabbage",
+    "buyer": "Murugan",
+    "price_per_kg": 60
+  }
+]
