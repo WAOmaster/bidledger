@@ -1,0 +1,12 @@
+[
+ ["s01_open", "Every morning before sunrise, wholesale markets across South Asia sell a country's vegetables in minutes. An auctioneer calls the lot. Traders shout their bids, in Tamil, Hindi, Sinhala, English. Hammer down. Next lot."],
+ ["s02_problem", "But the only record of what was shouted is a commission agent's handwritten slip. And the farmer gets paid from that slip. If the slip says one twenty-five, and the floor said one forty, the farmer loses the difference, and there is nothing he can show anyone."],
+ ["s03_intro", "So we built BidLedger. Every shouted bid, on the record."],
+ ["s04_record", "All it needs is one phone on the auction floor. This is our test recording: four voices, three languages, market noise."],
+ ["s05_voice", "Muse Voice Transcribe, in diarization mode, works out who said what and when, across English, Hindi and Tamil, with the auction's own words as keywords. Every turn comes back with a speaker and a timestamp."],
+ ["s06_spark", "Then Muse Spark acts as the auction clerk. It figures out which voice is the auctioneer and which trader is behind every other voice. It reads a bid shouted as a Tamil number and turns it into rupees. For every lot it records the winner, the price, and the exact moment the hammer fell, and cuts that moment out as audio proof."],
+ ["s07_slip", "Now check the agent's slip against the floor. Lot one. The slip says one hundred and twenty-five rupees a kilo. The floor said one forty. That is nine thousand rupees missing from one farmer, on one lot, caught in seconds, with the clip to prove it."],
+ ["s08_whatsapp", "Every sale becomes a WhatsApp receipt, to the buyer and to the farmer, with the proof clip attached. The farmer doesn't install anything. He just listens to the moment his carrots were sold."],
+ ["s09_numbers", "On the live Meta Model API, BidLedger got four out of four lots right, with the correct buyer and price, even where voices overlapped. And every lot it records is two business messages on WhatsApp, in markets where traders already live on it."],
+ ["s10_close", "Everything you saw was built during this hackathon. Next, a live market floor and realtime receipts as the hammer falls. BidLedger. Every shouted bid, on the record."]
+]
