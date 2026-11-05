@@ -150,6 +150,23 @@ tr.row{opacity:0;transition:all .45s}tr.row.show{opacity:1}tr.row.hit td{backgro
     <div class="card" style="padding:12px 18px"><span>Muse Image (visuals)</span></div><div class="card" style="padding:12px 18px"><span>WhatsApp Cloud API</span></div>
   </div>
 </div>
+<!-- s09b -->
+<div class="scene" id="s09b_meta" style="background:radial-gradient(ellipse at 50% 35%,#16304f 0%,var(--ink) 70%)">
+  <div style="position:absolute;top:80px;left:0;right:0;text-align:center;font-size:44px;font-weight:900">How Meta earns from every market</div>
+  <div id="rev" style="position:absolute;top:160px;left:70px;right:70px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px">
+    <div class="card" style="text-align:left"><b style="font-size:26px;color:var(--sky)">Meta Model API</b><span>Muse Voice minutes + Spark tokens, every auction, every day</span></div>
+    <div class="card" style="text-align:left"><b style="font-size:26px;color:var(--wa)">WhatsApp receipts</b><span>2 paid utility messages per lot · buyer + farmer</span></div>
+    <div class="card" style="text-align:left"><b style="font-size:26px;color:var(--wa)">WhatsApp Pay</b><span>"Pay farmer" button: settle at the verified price (UPI · Pix)</span></div>
+    <div class="card" style="text-align:left"><b style="font-size:26px;color:var(--gold)">Click-to-WhatsApp ads</b><span>agents and buyers advertise tomorrow's lots</span></div>
+    <div class="card" style="text-align:left"><b style="font-size:26px;color:var(--gold)">Business Agent</b><span>"What did my carrots sell for?" answered with the clip</span></div>
+    <div class="card" style="text-align:left"><b style="font-size:26px;color:var(--sky)">Ray-Ban Meta glasses</b><span>hands-free recording for the auctioneer</span></div>
+  </div>
+  <div class="card" id="scale" style="position:absolute;top:452px;left:170px;right:170px;padding:14px"><span>India alone: 1,522 e-NAM mandis × ~500 lots a day × 2 receipts</span><b style="font-size:38px">≈ 1.5 million WhatsApp messages a day</b></div>
+  <div class="cards" id="more" style="position:absolute;top:585px;left:60px;right:60px">
+    <div class="card" style="padding:8px 16px;min-width:0"><span>🐟 Fish landing auctions</span></div><div class="card" style="padding:8px 16px;min-width:0"><span>🐄 Cattle fairs</span></div>
+    <div class="card" style="padding:8px 16px;min-width:0"><span>🏗️ Day-labour sites, Brazil</span></div><div class="card" style="padding:8px 16px;min-width:0"><span>🌸 Flower and tea auctions</span></div>
+  </div>
+</div>
 <!-- s10 -->
 <div class="scene" id="s10_close" style="background:radial-gradient(ellipse at 50% 45%,#16304f 0%,var(--ink) 70%)">
   <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding-bottom:80px">
@@ -203,8 +220,10 @@ const R = {
     add('wa1', rec(), '', .8); add('wa1', vn('v1'), '', 2.2); add('wa2', rec(), '', 1.4); add('wa2', vn('v2'), '', 2.8);
     let p = 0; at(4, () => { const iv = setInterval(() => { p++; $('v1').innerHTML = bars(p); if (p > 26) clearInterval(iv); }, 140); });
     add('wa1', 'Floor price was 140. My slip said 125. 🙏 Thank you', 'me', 8.3); add('wa2', 'Confirmed 👍', 'me', 9.2); },
-  s09_numbers() { [...$('nums').children].forEach((c, i) => at(.5 + i * .9, () => c.classList.add('show')));
-    [...$('tools').children].forEach((c, i) => at(5 + i * .6, () => c.classList.add('show'))); },
+  s09_numbers() { [...$('nums').children].forEach((c, i) => at(.3 + i * .6, () => c.classList.add('show')));
+    [...$('tools').children].forEach((c, i) => at(3.6 + i * .4, () => c.classList.add('show'))); },
+  s09b_meta() { [...$('rev').children].forEach((c, i) => at(1 + i * 1.7, () => c.classList.add('show')));
+    at(12.5, () => show('scale')); [...$('more').children].forEach((c, i) => at(15.5 + i * .5, () => c.classList.add('show'))); },
   s10_close() {}
 };
 R[S]();

@@ -9,7 +9,7 @@ RAW, SEG = HERE / "raw", HERE / "seg"
 FF = ["ffmpeg", "-y", "-loglevel", "error"]
 SCENES = [k for k, _ in json.loads((HERE / "narration.json").read_text(encoding="utf-8"))]
 DUR = {p.stem: wave.open(str(p)).getnframes() / 24000 for p in (HERE / "audio").glob("*.wav")}
-PAD = {"s01_open": 1.8, "s03_intro": 2.0, "s04_record": 8.0, "s07_slip": 1.6, "s08_whatsapp": 1.6, "s10_close": 3.5}
+PAD = {"s09b_meta": 1.2, "s01_open": 1.8, "s03_intro": 2.0, "s04_record": 8.0, "s07_slip": 1.6, "s08_whatsapp": 1.6, "s10_close": 3.5}
 AUCTION_AT = {"s04_record": 0.4}  # real auction audio starts here in that scene (s), under then after the narration
 BED = Path(r"F:\Dev\Agent Os\projects\Ai Builder Cup 2026\production\video\fairfreeze-bed.wav")
 
@@ -23,7 +23,10 @@ def record():
         d.mkdir(exist_ok=True)
     with sync_playwright() as p:
         b = p.chromium.launch()
+        only = [a for a in __import__('sys').argv[1:] if not a.startswith('--')]
         for s in SCENES:
+            if only and s not in only:
+                continue
             dur = DUR[s] + PAD.get(s, 1.0)
             ctx = b.new_context(viewport={"width": 1280, "height": 720}, record_video_dir=str(RAW / s),
                                 record_video_size={"width": 1280, "height": 720})
